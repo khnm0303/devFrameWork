@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ 
+<mapper namespace="com.lyh.boot.board.mapper.BoardMapper">
+ 
+    <select id="boardCount" resultType="int">
+        SELECT COUNT(*) FROM BOARD
+    </select>
+    
+    <select id="boardList" resultType="com.lyh.boot.board.domain.BoardVO">
+        SELECT * FROM BOARD
+    </select>
+    
+    <select id="boardDetail" parameterType="int" resultType="com.lyh.boot.board.domain.BoardVO">
+        SELECT * FROM BOARD WHERE BNO = #{bno}
+    </select>
+    
+    <insert id="boardInsert" parameterType="com.lyh.boot.board.domain.BoardVO" useGeneratedKeys="true" keyProperty="idx">
+    	INSERT INTO
+    	BOARD (BNO, SUBJECT,CONTENT,WRITER,REG_DATE)
+    	VALUES(#{bno},#{subject},#{content},#{writer},now()) 
+	</insert>
+    
+	<insert id="fileInsert" parameterType="com.lyh.boot.board.domain.FileVO">
+        INSERT INTO
+        FILES (FNO, BNO, FILENAME, FILEORINAME, FILEURL)
+    	VALUES (#{fno},#{bno},#{fileName},#{fileOriName},#{fileUrl})
+	</insert>
+    
+    <update id="boardUpdate" parameterType="com.lyh.boot.board.domain.BoardVO">
+        UPDATE BOARD SET
+	    <if test="subject != null">
+            SUBJECT = #{subject}
+        </if>
+        <if test="subject != null and content != null"> , </if>
+        <if test="content != null">
+            CONTENT = #{content}
+        </if>
+        WHERE BNO = #{bno}
+    </update>
+    
+    <delete id="boardDelete" parameterType="int">
+        DELETE FROM BOARD WHERE BNO = #{bno}
+    </delete>
+
+
+</mapper>
+
+
