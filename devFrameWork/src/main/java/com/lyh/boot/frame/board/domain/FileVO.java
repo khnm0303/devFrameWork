@@ -1,4 +1,4 @@
-package com.lyh.boot.board.domain;
+package com.lyh.boot.frame.board.domain;
 
 public class FileVO {
 

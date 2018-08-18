@@ -1,4 +1,4 @@
-package com.lyh.boot.board.service;
+package com.lyh.boot.frame.board.service;
 
 import java.util.List;
 

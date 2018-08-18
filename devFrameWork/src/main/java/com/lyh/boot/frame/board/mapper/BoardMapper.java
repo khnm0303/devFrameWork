@@ -1,4 +1,4 @@
-package com.lyh.boot.board.mapper;
+package com.lyh.boot.frame.board.mapper;
 
 import java.util.List;
 

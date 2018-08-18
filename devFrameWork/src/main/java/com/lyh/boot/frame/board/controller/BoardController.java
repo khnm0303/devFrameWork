@@ -1,4 +1,4 @@
-package com.lyh.boot.board.controller;
+package com.lyh.boot.frame.board.controller;
 
 import java.io.File;
 
