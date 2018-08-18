@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
-import com.lyh.boot.board.domain.BoardVO;
-import com.lyh.boot.board.domain.FileVO;
-import com.lyh.boot.board.service.BoardService;
+
+import com.lyh.boot.frame.board.domain.BoardVO;
+import com.lyh.boot.frame.board.domain.FileVO;
+import com.lyh.boot.frame.board.service.BoardService;
  
 @Controller
 public class BoardController {
