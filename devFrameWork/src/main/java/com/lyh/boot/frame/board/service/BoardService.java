@@ -5,10 +5,11 @@ import java.util.List;
 import javax.annotation.Resource;
  
 import org.springframework.stereotype.Service;
+
+import com.lyh.boot.frame.board.domain.BoardVO;
+import com.lyh.boot.frame.board.domain.FileVO;
+import com.lyh.boot.frame.board.mapper.BoardMapper;
  
-import com.lyh.boot.board.domain.BoardVO;
-import com.lyh.boot.board.domain.FileVO;
-import com.lyh.boot.board.mapper.BoardMapper;
  
 @Service("com.lyh.boot.board.service.BoardService")
 public class BoardService {
