@@ -23,24 +23,24 @@ public class BoardController {
     @Resource(name="com.lyh.boot.board.service.BoardService")
     BoardService mBoardService;
     
-    @RequestMapping("/board/list") //게시판 리스트 화면 호출  
+    @RequestMapping("/frame/board/list") //게시판 리스트 화면 호출  
     private String boardList(Model model) throws Exception{
         model.addAttribute("list", mBoardService.boardListService());
         return "board/list"; //생성할 jsp
     }
     
-    @RequestMapping("/board/detail/{bno}") 
+    @RequestMapping("/frame//board/detail/{bno}") 
     private String boardDetail(@PathVariable int bno, Model model) throws Exception{
         model.addAttribute("detail", mBoardService.boardDetailService(bno));
         return "/board/detail";
     }
     
-    @RequestMapping("/board/insert") //게시글 작성폼 호출  
+    @RequestMapping("/frame/board/insert") //게시글 작성폼 호출  
     private String boardInsertForm(){
         return "/board/insert";
     }
     
-    @RequestMapping("/board/insertProc")
+    @RequestMapping("/frame/board/insertProc")
     private String boardInsertProc(HttpServletRequest request, @RequestPart MultipartFile files) throws Exception{
         
         BoardVO board = new BoardVO();
@@ -85,16 +85,16 @@ public class BoardController {
         }
         
         
-        return "redirect:/board/list";
+        return "redirect:/frame/board/list";
     }
 
-    @RequestMapping("/board/update/{bno}") //게시글 수정폼 호출  
+    @RequestMapping("/frame/board/update/{bno}") //게시글 수정폼 호출  
     private String boardUpdateForm(@PathVariable int bno, Model model) throws Exception{
         model.addAttribute("detail", mBoardService.boardDetailService(bno));
-        return "/board/update";
+        return "/frame/board/update";
     }
     
-    @RequestMapping("/board/updateProc")
+    @RequestMapping("/frame/board/updateProc")
     private String boardUpdateProc(HttpServletRequest request) throws Exception{
         
         BoardVO board = new BoardVO();
@@ -104,10 +104,10 @@ public class BoardController {
         
         mBoardService.boardUpdateService(board);
         
-        return "redirect:/board/detail/"+request.getParameter("bno"); 
+        return "redirect:/frame/board/detail/"+request.getParameter("bno"); 
     }
  
-    @RequestMapping("/board/delete/{bno}")
+    @RequestMapping("/frame/board/delete/{bno}")
     private String boardDelete(@PathVariable int bno) throws Exception{
         mBoardService.boardDeleteService(bno);
         return "redirect:/board/list";
