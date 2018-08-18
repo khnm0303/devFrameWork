@@ -3,8 +3,9 @@ package com.lyh.boot.frame.board.mapper;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
-import com.lyh.boot.board.domain.BoardVO;
-import com.lyh.boot.board.domain.FileVO;
+
+import com.lyh.boot.frame.board.domain.BoardVO;
+import com.lyh.boot.frame.board.domain.FileVO;
 
 @Repository("com.lyh.boot.board.mapper.BoardMapper")
 public interface BoardMapper {
