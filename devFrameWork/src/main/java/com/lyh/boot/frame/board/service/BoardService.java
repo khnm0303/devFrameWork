@@ -11,10 +11,10 @@ import com.lyh.boot.frame.board.domain.FileVO;
 import com.lyh.boot.frame.board.mapper.BoardMapper;
  
  
-@Service("com.lyh.boot.board.service.BoardService")
+@Service("com.lyh.boot.frame.board.service.BoardService")
 public class BoardService {
  
-    @Resource(name="com.lyh.boot.board.mapper.BoardMapper")
+    @Resource(name="com.lyh.boot.frame.board.mapper.BoardMapper")
     BoardMapper mBoardMapper;
     
     public List<BoardVO> boardListService() throws Exception{

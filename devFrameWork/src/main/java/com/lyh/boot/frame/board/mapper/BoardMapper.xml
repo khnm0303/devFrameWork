@@ -3,33 +3,33 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
  
-<mapper namespace="com.lyh.boot.board.mapper.BoardMapper">
+<mapper namespace="com.lyh.boot.frame.board.mapper.BoardMapper">
  
     <select id="boardCount" resultType="int">
         SELECT COUNT(*) FROM BOARD
     </select>
     
-    <select id="boardList" resultType="com.lyh.boot.board.domain.BoardVO">
+    <select id="boardList" resultType="com.lyh.boot.frame.board.domain.BoardVO">
         SELECT * FROM BOARD
     </select>
     
-    <select id="boardDetail" parameterType="int" resultType="com.lyh.boot.board.domain.BoardVO">
+    <select id="boardDetail" parameterType="int" resultType="com.lyh.boot.frame.board.domain.BoardVO">
         SELECT * FROM BOARD WHERE BNO = #{bno}
     </select>
     
-    <insert id="boardInsert" parameterType="com.lyh.boot.board.domain.BoardVO" useGeneratedKeys="true" keyProperty="idx">
+    <insert id="boardInsert" parameterType="com.lyh.boot.frame.board.domain.BoardVO" useGeneratedKeys="true" keyProperty="idx">
     	INSERT INTO
     	BOARD (BNO, SUBJECT,CONTENT,WRITER,REG_DATE)
     	VALUES(#{bno},#{subject},#{content},#{writer},now()) 
 	</insert>
     
-	<insert id="fileInsert" parameterType="com.lyh.boot.board.domain.FileVO">
+	<insert id="fileInsert" parameterType="com.lyh.boot.frame.board.domain.FileVO">
         INSERT INTO
         FILES (FNO, BNO, FILENAME, FILEORINAME, FILEURL)
     	VALUES (#{fno},#{bno},#{fileName},#{fileOriName},#{fileUrl})
 	</insert>
     
-    <update id="boardUpdate" parameterType="com.lyh.boot.board.domain.BoardVO">
+    <update id="boardUpdate" parameterType="com.lyh.boot.frame.board.domain.BoardVO">
         UPDATE BOARD SET
 	    <if test="subject != null">
             SUBJECT = #{subject}

@@ -5,7 +5,6 @@ import java.io.File;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +19,7 @@ import com.lyh.boot.frame.board.service.BoardService;
 @Controller
 public class BoardController {
  
-    @Resource(name="com.lyh.boot.board.service.BoardService")
+    @Resource(name="com.lyh.boot.frame.board.service.BoardService")
     BoardService mBoardService;
     
     @RequestMapping("/frame/board/list") //게시판 리스트 화면 호출  
@@ -61,7 +60,8 @@ public class BoardController {
             String fileUrl = "c:/DEV/sts-bundle/workspace/demo/src/main/webapp/uploadfiles/";
             
             do { 
-                destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "." + fileNameExtension; 
+                //destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "." + fileNameExtension; 
+            	destinationFileName = "2018" + "." + fileNameExtension;
                 destinationFile = new File(fileUrl+ destinationFileName); 
             } while (destinationFile.exists()); 
             

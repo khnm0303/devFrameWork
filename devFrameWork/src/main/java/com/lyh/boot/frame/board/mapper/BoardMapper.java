@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.lyh.boot.frame.board.domain.BoardVO;
 import com.lyh.boot.frame.board.domain.FileVO;
 
-@Repository("com.lyh.boot.board.mapper.BoardMapper")
+@Repository("com.lyh.boot.frame.board.mapper.BoardMapper")
 public interface BoardMapper {
 	
 	//게시글 개수  
